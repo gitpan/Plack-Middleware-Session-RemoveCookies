@@ -1,6 +1,6 @@
 package Plack::Middleware::Session::RemoveCookies;
 {
-  $Plack::Middleware::Session::RemoveCookies::VERSION = '0.01';
+  $Plack::Middleware::Session::RemoveCookies::VERSION = '0.011';
 }
 # ABSTRACT: remove cookies from the requests
 
@@ -8,10 +8,9 @@ use strict;
 use warnings;
 use Plack::Request;
 use HTTP::Headers::Util qw(join_header_words);
+use Plack::Util::Accessor 'key';
 
 use parent 'Plack::Middleware';
-
-__PACKAGE__->mk_accessors('key');
 
 sub call {
   my ( $self, $env ) = @_;
@@ -40,7 +39,7 @@ Plack::Middleware::Session::RemoveCookies - remove cookies from the requests
 
 =head1 VERSION
 
-version 0.01
+version 0.011
 
 =head1 SYNOPSIS
 
@@ -51,6 +50,10 @@ version 0.01
     enable_if {
         $_[0]->{'HTTP_X_DO-NOT-TRACK'} || $_[0]->{'HTTP_DNT'}
     } 'Session::RemoveCookies', key => qr{plack_session}i;
+
+=head1 DESCRIPTION
+
+This middleware allows to remove cookies from the requests which is useful with L<Plack::App::Proxy>.
 
 =head1 ACKNOWLEDGMENT
 
