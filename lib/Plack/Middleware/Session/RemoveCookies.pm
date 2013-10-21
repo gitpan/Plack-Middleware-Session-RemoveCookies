@@ -1,8 +1,7 @@
 package Plack::Middleware::Session::RemoveCookies;
-{
-  $Plack::Middleware::Session::RemoveCookies::VERSION = '0.011';
-}
 # ABSTRACT: remove cookies from the requests
+
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -29,7 +28,7 @@ sub call {
 
 1;
 
-
+__END__
 
 =pod
 
@@ -39,7 +38,7 @@ Plack::Middleware::Session::RemoveCookies - remove cookies from the requests
 
 =head1 VERSION
 
-version 0.011
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -69,13 +68,9 @@ Wallace Reis <wreis@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Wallace Reis.
+This software is copyright (c) 2013 by Wallace Reis.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
